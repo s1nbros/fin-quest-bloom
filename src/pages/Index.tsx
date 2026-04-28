@@ -417,7 +417,7 @@ export default function Index() {
                 transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 700ms',
               }}
             >
-              <a href="https://octolio-app.vercel.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-2xl bg-brand-green px-6 py-3 text-sm font-semibold text-background shadow-[0_4px_24px_hsl(var(--brand-green)/0.3)] hover:bg-brand-green/90 active:scale-[0.97] transition-all duration-200">
+              <a href="https://app.octolio.me/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-2xl bg-brand-green px-6 py-3 text-sm font-semibold text-background shadow-[0_4px_24px_hsl(var(--brand-green)/0.3)] hover:bg-brand-green/90 active:scale-[0.97] transition-all duration-200">
                 {t('hero.cta')}
               </a>
               <a href="#how-it-works" className="inline-flex items-center justify-center rounded-2xl border border-brand-green/30 bg-brand-green/5 px-6 py-3 text-sm font-semibold text-foreground/90 hover:bg-brand-green/10 transition-all duration-200 active:scale-[0.97]">
