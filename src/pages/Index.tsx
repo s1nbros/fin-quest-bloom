@@ -117,7 +117,7 @@ function LogoMark() {
       <img src={octolioLogo} alt="Octolio logo" className="h-10 w-10 object-contain drop-shadow-[0_0_8px_hsl(var(--brand-green)/0.4)]" />
       <div className="leading-tight">
         <div className="text-sm font-semibold tracking-tight">Octolio</div>
-        <div className="text-[11px] text-muted-foreground">FinTech x EdTech RPG</div>
+        <div className="text-[11px] text-muted-foreground">Master your money, one lesson at a time.</div>
       </div>
     </div>
   )
@@ -234,21 +234,21 @@ export default function Index() {
   ], [t])
 
   const moduleImages: Record<string, string> = {
-    survival: imgModuleSurvival,
-    debt: imgModuleDebt,
     budget: imgModuleBudget,
+    survival: imgModuleSurvival,
     invest: imgModuleInvest,
-    guard: imgModuleGuard,
+    debt: imgModuleDebt,
     wealth: imgModuleWealth,
+    guard: imgModuleGuard,
   }
 
   const modules = useMemo(() => [
-    { key: 'survival', title: t('mod.m1.title'), mechanic: t('mod.m1.mechanic'), desc: t('mod.m1.desc') },
-    { key: 'debt', title: t('mod.m2.title'), mechanic: t('mod.m2.mechanic'), desc: t('mod.m2.desc') },
-    { key: 'budget', title: t('mod.m3.title'), mechanic: t('mod.m3.mechanic'), desc: t('mod.m3.desc') },
-    { key: 'invest', title: t('mod.m4.title'), mechanic: t('mod.m4.mechanic'), desc: t('mod.m4.desc') },
-    { key: 'guard', title: t('mod.m5.title'), mechanic: t('mod.m5.mechanic'), desc: t('mod.m5.desc') },
-    { key: 'wealth', title: t('mod.m6.title'), mechanic: t('mod.m6.mechanic'), desc: t('mod.m6.desc') },
+    { key: 'budget', abbr: 'BB', title: t('mod.m1.title'), mechanic: t('mod.m1.mechanic'), desc: t('mod.m1.desc') },
+    { key: 'survival', abbr: 'SS', title: t('mod.m2.title'), mechanic: t('mod.m2.mechanic'), desc: t('mod.m2.desc') },
+    { key: 'invest', abbr: 'IN', title: t('mod.m3.title'), mechanic: t('mod.m3.mechanic'), desc: t('mod.m3.desc') },
+    { key: 'debt', abbr: 'CD', title: t('mod.m4.title'), mechanic: t('mod.m4.mechanic'), desc: t('mod.m4.desc') },
+    { key: 'wealth', abbr: 'SH', title: t('mod.m5.title'), mechanic: t('mod.m5.mechanic'), desc: t('mod.m5.desc') },
+    { key: 'guard', abbr: 'IF', title: t('mod.m6.title'), mechanic: t('mod.m6.mechanic'), desc: t('mod.m6.desc') },
   ], [t])
 
   const faq = useMemo(() => [
@@ -473,9 +473,9 @@ export default function Index() {
 
                 <Reveal delay={400}>
                   <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                    <StatPill value="5–10 min" label={t('about.stat1')} />
-                    <StatPill value="Just-in-Time" label={t('about.stat2')} />
-                    <StatPill value="No RNG" label={t('about.stat3')} />
+                    <StatPill value={t('about.stat1.value')} label={t('about.stat1')} />
+                    <StatPill value={t('about.stat2.value')} label={t('about.stat2')} />
+                    <StatPill value={t('about.stat3.value')} label={t('about.stat3')} />
                   </div>
                 </Reveal>
               </div>
@@ -627,7 +627,7 @@ export default function Index() {
                         </div>
                       </div>
                       <div className="h-10 w-10 rounded-2xl bg-brand-green/10 ring-1 ring-brand-green/20 flex items-center justify-center text-brand-green font-bold text-xs">
-                        {m.key === 'survival' ? 'SF' : m.key === 'debt' ? 'DS' : m.key === 'budget' ? 'AR' : m.key === 'invest' ? 'IV' : m.key === 'guard' ? 'GD' : 'WT'}
+                        {m.abbr}
                       </div>
                     </div>
                     <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{m.desc}</p>
@@ -736,26 +736,29 @@ export default function Index() {
 
               <Reveal delay={100}>
                 <div className="rounded-3xl border border-border bg-secondary/40 p-6 shadow-soft backdrop-blur-sm">
-                  <form
-                    onSubmit={(e) => { e.preventDefault(); alert(t('cta.thanks')) }}
-                    className="space-y-3"
-                  >
-                    <label className="block text-sm font-semibold text-foreground/90">
-                      {t('cta.email')}
-                      <input
-                        required
-                        type="email"
-                        placeholder={t('cta.placeholder')}
-                        className="mt-2 w-full rounded-2xl border border-border bg-background/30 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-brand-green transition-colors"
-                      />
-                    </label>
-                    <button type="submit" className="w-full rounded-2xl bg-brand-green px-5 py-3 text-sm font-semibold text-background hover:bg-brand-green/90 active:scale-[0.97] transition-all duration-200">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between rounded-2xl border border-border bg-background/30 px-4 py-3">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-green/10 text-brand-green ring-1 ring-brand-green/20">⚡</div>
+                        <div>
+                          <div className="text-sm font-semibold">app.octolio.me</div>
+                          <div className="text-xs text-muted-foreground">Web app · works on any device</div>
+                        </div>
+                      </div>
+                      <div className="rounded-full bg-brand-green/10 px-2.5 py-1 text-[11px] font-semibold text-brand-green ring-1 ring-brand-green/20">FREE</div>
+                    </div>
+                    <a
+                      href="https://app.octolio.me/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full rounded-2xl bg-brand-green px-5 py-3 text-center text-sm font-semibold text-background shadow-[0_4px_24px_hsl(var(--brand-green)/0.3)] hover:bg-brand-green/90 active:scale-[0.97] transition-all duration-200"
+                    >
                       {t('cta.submit')}
-                    </button>
+                    </a>
                     <div className="text-xs text-muted-foreground">
                       {t('cta.disclaimer')}
                     </div>
-                  </form>
+                  </div>
                 </div>
               </Reveal>
             </div>
