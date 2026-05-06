@@ -195,7 +195,7 @@ export default function AboutUs() {
           <div className="mx-auto max-w-4xl px-4 py-12">
             <div className="grid grid-cols-3 gap-4">
               <StatCard icon={<Users size={22} />} value="6" label={t('aboutPage.teamMembers')} delay={0} />
-              <StatCard icon={<Coins size={22} />} value="6" label={t('aboutPage.learningModules')} delay={100} />
+              <StatCard icon={<Coins size={22} />} value="5" label={t('aboutPage.learningModules')} delay={100} />
               <StatCard icon={<Target size={22} />} value="1" label={t('aboutPage.sharedMission')} delay={200} />
             </div>
           </div>
@@ -379,7 +379,7 @@ export default function AboutUs() {
                 <img src={octolioLogo} alt="Octolio logo" className="h-10 w-10 object-contain drop-shadow-[0_0_8px_hsl(var(--brand-green)/0.4)]" />
                 <div className="leading-tight">
                   <div className="text-sm font-semibold tracking-tight">Octolio</div>
-                  <div className="text-[11px] text-muted-foreground">FinTech x EdTech RPG</div>
+                  <div className="text-[11px] text-muted-foreground">Master your money, one lesson at a time.</div>
                 </div>
               </div>
               <div className="mt-3 text-sm text-muted-foreground">
